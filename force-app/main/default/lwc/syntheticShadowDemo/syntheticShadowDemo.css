@@ -1,0 +1,19 @@
+.container {
+  border: 2px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+
+.query-result {
+  font-style: italic;
+  color: #333;
+}
+
+
+/* Limit the width of the list and add a vertical scrollbar */
+.container ul {
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+}

@@ -1,0 +1,31 @@
+<template>
+  <div class="container" role="region" aria-label="Native">
+    <h3 id="nativeShadowTitle">Native</h3>
+    <p>
+      Uses native shadow (mixed mode). Global CSS from the parent does not leak
+      into its inner elements.
+    </p>
+    <!-- Local event button -->
+    <button onclick={handleLocalClick} aria-label="Local click">
+      Click Me
+    </button>
+    <p>Internal event target: {internalTarget}</p>
+    <!-- Nested native child component -->
+    <c-native-child onchildclick={handleChildClick}></c-native-child>
+    <p>Child event target (Native): {childEventTarget}</p>
+    <button onclick={renderLargeList} aria-label="Render items">
+      Render 1000 Items
+    </button>
+    <p if:true={renderTime}>Time: {renderTime} ms</p>
+    <button onclick={simulateExternalQuery} aria-label="Simulate query">
+      Simulate Query
+    </button>
+    <p class="query-result">{externalQueryResult}</p>
+    <ul>
+      <template for:each={items} for:item="item">
+        <li key={item}>{item}</li>
+      </template>
+    </ul>
+    <div class="child-marker global-leak">Marker in Native</div>
+  </div>
+</template>

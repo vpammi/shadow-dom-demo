@@ -1,0 +1,27 @@
+.parent-controls {
+  padding: 10px;
+  margin-bottom: 20px;
+  background: #eef;
+  border: 1px solid #99c;
+}
+
+.demo-section {
+  border: 2px dashed #666;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.event-log {
+  margin-top: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  background: #f9f9f9;
+}
+
+.parent-query-result {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #555;
+  background: #ddd;
+  white-space: pre-line;
+}

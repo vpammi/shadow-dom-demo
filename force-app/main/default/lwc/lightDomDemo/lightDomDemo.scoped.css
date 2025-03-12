@@ -1,0 +1,20 @@
+.container {
+  display: block;
+  border: 2px solid green;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Global CSS from the parent is applied via the .global-leak class */
+.query-result {
+  font-style: italic;
+  color: #333;
+}
+
+/* Limit the width of the list and add a vertical scrollbar */
+.container ul {
+  max-height: 100px;
+  overflow-y: auto;
+  border: 1px solid #ccc;
+  padding: 5px;
+}

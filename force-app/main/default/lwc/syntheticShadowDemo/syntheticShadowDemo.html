@@ -1,0 +1,33 @@
+<template>
+  <div class="container" role="region" aria-label="Synthetic">
+    <h3 id="syntheticShadowTitle">Synthetic</h3>
+    <p>
+      Uses synthetic shadow. Global queries (document.querySelector) won’t see
+      its inner elements.
+    </p>
+    <!-- Local event button -->
+    <button onclick={handleLocalClick} aria-label="Local click">
+      Click Me
+    </button>
+    <p>Internal event target: {internalTarget}</p>
+    <!-- Nested synthetic child -->
+    <c-synthetic-child onchildclick={handleChildClick}></c-synthetic-child>
+    <p>Child event target (Synthetic): {childEventTarget}</p>
+    <button onclick={renderLargeList} aria-label="Render items">
+      Render 1000 Items
+    </button>
+    <p if:true={renderTime}>Time: {renderTime} ms</p>
+    <button onclick={simulateExternalQuery} aria-label="Simulate query">
+      Simulate Query
+    </button>
+    <p class="query-result">{externalQueryResult}</p>
+    <!-- List with limited width and scrollbar -->
+    <ul>
+      <template for:each={items} for:item="item">
+        <li key={item}>{item}</li>
+      </template>
+    </ul>
+    <!-- Visible marker element with global-leak class -->
+    <div class="child-marker global-leak">Marker in Synthetic</div>
+  </div>
+</template>
