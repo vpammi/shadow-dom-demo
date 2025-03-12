@@ -11,16 +11,6 @@ export default class NativeShadowDemo extends LightningElement {
   internalTarget = "";
   childEventTarget = "";
 
-  handleLocalClick(event) {
-    this.internalTarget = event.target.tagName;
-    const customEvt = new CustomEvent("customdemo", {
-      detail: { message: "Native Event from " + event.target.tagName },
-      bubbles: true,
-      composed: true
-    });
-    this.dispatchEvent(customEvt);
-  }
-
   handleChildClick(event) {
     this.childEventTarget =
       event.detail.message +
@@ -33,7 +23,7 @@ export default class NativeShadowDemo extends LightningElement {
     this.measurePerformance = true;
     this.startTime = performance.now();
     this.items = [];
-    for (let i = 1; i <= 1000000; i++) {
+    for (let i = 1; i <= 10000; i++) {
       this.items.push(`Item ${i}`);
     }
   }

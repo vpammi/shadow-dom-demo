@@ -2,16 +2,11 @@
   <div class="container" role="region" aria-label="Light DOM">
     <h3 id="lightDomTitle">Light DOM</h3>
     <p>Uses Light DOM. Global CSS from the parent will apply here.</p>
-    <!-- Local event button -->
-    <button onclick={handleLocalClick} aria-label="Local click">
-      Click Me
-    </button>
-    <p>Internal event target: {internalTarget}</p>
     <!-- Nested light DOM child -->
     <c-light-dom-child onchildclick={handleChildClick}></c-light-dom-child>
     <p>Child event target (Light DOM): {childEventTarget}</p>
     <button onclick={renderLargeList} aria-label="Render items">
-      Render 1000 Items
+      Render Large List
     </button>
     <p if:true={renderTime}>Time: {renderTime} ms</p>
     <button onclick={simulateExternalQuery} aria-label="Simulate query">

@@ -1,39 +1,41 @@
 <template>
-  <div class="parent-controls">
-    <button
-      onclick={handleParentQueryInner}
-      aria-label="Parent query inner element"
-    >
-      Parent: Query Child Inner Element
-    </button>
-    <p>
-      The button below queries for a hidden marker inside each child. Global CSS
-      loaded here (via a static resource) will apply to Light DOM children but
-      not to shadow DOM ones.
-    </p>
-    <div class="parent-query-result">
-      <p>{queryResultMessage}</p>
+  <div class="demo-container">
+    <div class="parent-controls">
+      <button
+        onclick={handleParentQueryInner}
+        aria-label="Parent query inner element"
+      >
+        Parent: Query Child Inner Element
+      </button>
+      <p>
+        The button below queries for a hidden marker inside each child. Global
+        CSS loaded here (via a static resource) will apply to Light DOM children
+        but not to shadow DOM ones.
+      </p>
+      <div class="parent-query-result">
+        <p>{queryResultMessage}</p>
+      </div>
     </div>
-  </div>
 
-  <div class="demo-section synthetic">
-    <h2>Synthetic</h2>
-    <c-synthetic-shadow-demo
-      oncustomdemo={handleEvent}
-    ></c-synthetic-shadow-demo>
-  </div>
-  <div class="demo-section light">
-    <h2>Light DOM</h2>
-    <c-light-dom-demo oncustomdemo={handleEvent}></c-light-dom-demo>
-  </div>
-  <div class="demo-section native">
-    <h2>Native</h2>
-    <c-native-shadow-demo oncustomdemo={handleEvent}></c-native-shadow-demo>
-  </div>
-  <div class="event-log" role="region" aria-live="polite">
-    <h3>Event Log:</h3>
-    <template for:each={eventLogs} for:item="log">
-      <p key={log}>{log}</p>
-    </template>
+    <div class="demo-section synthetic">
+      <h2>Synthetic</h2>
+      <c-synthetic-shadow-demo
+        onchildclick={handleEvent}
+      ></c-synthetic-shadow-demo>
+    </div>
+    <div class="demo-section light">
+      <h2>Light DOM</h2>
+      <c-light-dom-demo onchildclick={handleEvent}></c-light-dom-demo>
+    </div>
+    <div class="demo-section native">
+      <h2>Native</h2>
+      <c-native-shadow-demo onchildclick={handleEvent}></c-native-shadow-demo>
+    </div>
+    <div class="event-log" role="region" aria-live="polite">
+      <h3>Event Log:</h3>
+      <template for:each={eventLogs} for:item="log">
+        <p key={log}>{log}</p>
+      </template>
+    </div>
   </div>
 </template>

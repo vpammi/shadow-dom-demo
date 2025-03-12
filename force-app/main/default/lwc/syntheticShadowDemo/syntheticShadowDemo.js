@@ -9,16 +9,6 @@ export default class SyntheticShadowDemo extends LightningElement {
   internalTarget = "";
   childEventTarget = "";
 
-  handleLocalClick(event) {
-    this.internalTarget = event.target.tagName;
-    const customEvt = new CustomEvent("customdemo", {
-      detail: { message: "Synthetic Event from " + event.target.tagName },
-      bubbles: true,
-      composed: true
-    });
-    this.dispatchEvent(customEvt);
-  }
-
   handleChildClick(event) {
     // Record the event detail from the nested synthetic child.
     this.childEventTarget =
@@ -32,7 +22,7 @@ export default class SyntheticShadowDemo extends LightningElement {
     this.measurePerformance = true;
     this.startTime = performance.now();
     this.items = [];
-    for (let i = 1; i <= 1000000; i++) {
+    for (let i = 1; i <= 10000; i++) {
       this.items.push(`Item ${i}`);
     }
   }

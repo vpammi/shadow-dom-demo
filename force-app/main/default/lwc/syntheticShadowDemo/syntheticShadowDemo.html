@@ -5,16 +5,11 @@
       Uses synthetic shadow. Global queries (document.querySelector) won’t see
       its inner elements.
     </p>
-    <!-- Local event button -->
-    <button onclick={handleLocalClick} aria-label="Local click">
-      Click Me
-    </button>
-    <p>Internal event target: {internalTarget}</p>
     <!-- Nested synthetic child -->
     <c-synthetic-child onchildclick={handleChildClick}></c-synthetic-child>
     <p>Child event target (Synthetic): {childEventTarget}</p>
     <button onclick={renderLargeList} aria-label="Render items">
-      Render 1000 Items
+      Render Large List
     </button>
     <p if:true={renderTime}>Time: {renderTime} ms</p>
     <button onclick={simulateExternalQuery} aria-label="Simulate query">
